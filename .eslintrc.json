@@ -1,4 +1,4 @@
-module.exports = {
+{
     "env": {
         "node": true,
         "commonjs": true,
@@ -14,4 +14,4 @@ module.exports = {
         "max-len": ["warn", { "code": 80 }],
         "semi": "warn"
     }
-};
+}

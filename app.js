@@ -1,0 +1,1 @@
+const fruitsData = require ('./date.json');
