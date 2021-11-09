@@ -1,3 +1,4 @@
-const fruitsData = require ('../date.json');
+module.exports = function (data) {
 
-console.log (fruitsData);
+  return data;
+};

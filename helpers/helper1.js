@@ -1,5 +1,4 @@
-const fruitsData = require ('../date.json');
-
-function filterData () {
-  return fruitsData.filterData ()
-}
+module.exports = function (data, key, value) {
+  return data.filter((product) => product[key] === value);
+};
+  
