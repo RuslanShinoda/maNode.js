@@ -1,5 +1,5 @@
 const fruitsData = require('./date.json');
-const { helper1: filter } = require('./helpers');
+const { helper1: filter, helper3, helper2 } = require('./helpers');
 
 const filterFruits = filter(fruitsData, 'item', 'orange');
 
@@ -9,6 +9,9 @@ const fruitsWithWeight4 = filter(fruitsData, 'weight', 4);
 
 console.log(`There are fruits ${JSON.stringify(fruitsWithWeight4)}`);
 
-const { helper2: dataPrice } = require('./helpers');
+const fruitsWithPrice = helper3(fruitsData);
+console.log(helper2());
 
-const theHighestPrice = dataPrice(fruitsData);
+// const { helper2: dataPrice } = require('./helpers');
+
+// const theHighestPrice = dataPrice(fruitsData);

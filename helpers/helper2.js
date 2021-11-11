@@ -1,11 +1,22 @@
-module.exports = function (data) {
+const originData = require('../date.json');
+const addPriceToData = require('./helper3');
 
-  return data;
-};
-const fruitsData = require ('../date.json');
-
-console.log (fruitsData);
-=======
 module.exports = function (data) {
-  return data;
+  let products = [];
+  if (data) {
+    products = data;
+  } else {
+    products = addPriceToData (originData);
+    }
+
+  let topPrice = 0;
+  let topProduct = {};
+  products.forEach((product) => {
+    if (product.price > topPrice) {
+      topPrice = product.price;
+      topProduct = product;
+    }
+  });
+
+  return topProduct;
 };
