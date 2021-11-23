@@ -1,17 +1,20 @@
-const fruitsData = require('./date.json');
-const { helper1: filter, helper3, helper2 } = require('./helpers');
+const fruitsJsonData = require('./date.json');
+const {
+  helper1: filter,
+  helper2: getTopPriceProduct,
+  helper3: formatProduct,
+} = require('./helpers');
 
-const filterFruits = filter(fruitsData, 'item', 'orange');
-
-console.log(`There are orange fruits ${JSON.stringify(filterFruits)}`);
-
-const fruitsWithWeight4 = filter(fruitsData, 'weight', 4);
-
-console.log(`There are fruits ${JSON.stringify(fruitsWithWeight4)}`);
-
-const fruitsWithPrice = helper3(fruitsData);
-console.log(helper2());
-
-// const { helper2: dataPrice } = require('./helpers');
-
-// const theHighestPrice = dataPrice(fruitsData);
+function boot(fruitsData) {
+  const fruitsWithPrice = formatProduct(fruitsData);
+  console.log(fruitsWithPrice);
+  const filterItemOrange = filter(fruitsWithPrice, 'item', 'orange');
+  const filterItemWeightFour = filter(fruitsWithPrice, 'weight', 4);
+  const commonItems = [...filterItemOrange, ...filterItemWeightFour];
+  console.log(commonItems);
+  const productWithMaxPrice = getTopPriceProduct(commonItems);
+  console.log(productWithMaxPrice);
+  const defaultProducts = getTopPriceProduct();
+  console.log(defaultProducts);
+}
+boot(fruitsJsonData);

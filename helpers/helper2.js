@@ -1,13 +1,13 @@
 const originData = require('../date.json');
 const addPriceToData = require('./helper3');
 
-module.exports = function (data) {
+module.exports = (data) => {
   let products = [];
   if (data) {
     products = data;
   } else {
-    products = addPriceToData (originData);
-    }
+    products = addPriceToData(originData);
+  }
 
   let topPrice = 0;
   let topProduct = {};
